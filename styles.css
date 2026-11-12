@@ -1,0 +1,86 @@
+:root {
+  color: #173144;
+  background: #e9f4f4;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.monitor {
+  width: min(100%, 680px);
+  padding: clamp(24px, 5vw, 46px);
+  border: 7px solid #173144;
+  border-radius: 28px;
+  background: #fffdf7;
+  box-shadow: 12px 12px 0 #bfd8d6;
+}
+
+header { text-align: center; }
+.eyebrow { margin: 0; color: #dd6c4b; font: bold .75rem/1.2 Arial, sans-serif; letter-spacing: .16em; }
+h1 { margin: 6px 0 8px; font-size: clamp(2.6rem, 8vw, 4.8rem); }
+.subtitle { max-width: 420px; margin: 0 auto 26px; line-height: 1.45; }
+
+.screen {
+  position: relative;
+  min-height: 250px;
+  padding: 24px;
+  border: 3px solid #173144;
+  border-radius: 18px;
+  text-align: center;
+  background: #d8eee8;
+}
+
+.countdown { position: absolute; top: 12px; right: 16px; margin: 0 !important; color: #53717b; font: bold .74rem Arial, sans-serif; }
+.screen.talking-screen { background: #f8d1c4; }
+.screen.talking-screen .pet-icon { animation: pulse 1s ease-in-out infinite; }
+
+@keyframes pulse {
+  50% { transform: scale(1.12); }
+}
+
+.status-row { display: flex; justify-content: center; align-items: center; gap: 8px; font: bold .86rem Arial, sans-serif; }
+.indicator { width: 12px; height: 12px; border-radius: 50%; background: #7d8d94; }
+.indicator.on { background: #3aaf77; box-shadow: 0 0 0 4px #bde6ce; }
+.indicator.talking { background: #e5664a; box-shadow: 0 0 0 4px #f6c8b9; }
+.pet-icon { margin-top: 15px; font-size: 4.2rem; }
+.screen h2 { margin: 5px 0; font-size: 1.8rem; }
+.screen p { margin: 8px auto; max-width: 410px; line-height: 1.4; }
+.activity-time { color: #53717b; font-size: .9rem; }
+.alert-message { min-height: 1.35em; margin-top: 13px !important; color: #9f3e2a; font: bold .88rem Arial, sans-serif; }
+
+.controls { display: grid; grid-template-columns: repeat(2, 1fr); gap: 11px; margin: 22px 0; }
+button { min-height: 50px; border: 2px solid #173144; border-radius: 10px; background: #fffdf7; color: #173144; font: bold 1rem Arial, sans-serif; cursor: pointer; }
+button:hover:not(:disabled) { background: #f6d9a4; }
+button:focus-visible { outline: 4px solid #e5664a; outline-offset: 2px; }
+button:disabled { cursor: not-allowed; opacity: .45; }
+.primary { grid-column: 1 / -1; background: #dd6c4b; color: white; }
+.primary:hover:not(:disabled) { background: #bd4d35; }
+
+.settings { margin-bottom: 20px; padding: 16px; border-radius: 12px; background: #f4ead5; }
+.settings label:not(.checkbox-label) { margin-right: 7px; font: bold .9rem Arial, sans-serif; }
+input[type="number"] { width: 76px; padding: 7px; border: 2px solid #173144; border-radius: 7px; background: #fffdf7; font: inherit; }
+.settings p { margin: 10px 0 0; color: #53717b; font-size: .84rem; line-height: 1.35; }
+.talk-button { width: 100%; background: #e8f1ef; }
+.talk-button:active:not(:disabled) { background: #dd6c4b; color: white; transform: translateY(1px); }
+.talk-help { margin: 8px 0 20px; color: #53717b; text-align: center; font-size: .84rem; }
+
+.state-key { border-top: 2px dashed #9db7b5; padding-top: 17px; }
+.state-key h2 { margin: 0 0 10px; font-size: 1.1rem; }
+dl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0; }
+dl div { padding: 10px; border-radius: 9px; background: #edf4ef; }
+dt { color: #53717b; font: .72rem Arial, sans-serif; }
+dd { margin: 5px 0 0; font-weight: bold; }
+
+@media (max-width: 480px) {
+  dl { grid-template-columns: 1fr; }
+  .countdown { position: static; margin-bottom: 10px !important; text-align: right; }
+}
+}
