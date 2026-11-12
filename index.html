@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PawWatch Pet Monitor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="monitor" aria-labelledby="page-title">
+      <header>
+        <p class="eyebrow">HOME PET MONITOR</p>
+        <h1 id="page-title">PawWatch</h1>
+        <p class="subtitle">A model for noticing what your pet is doing and sending a little hello.</p>
+      </header>
+
+      <section class="screen" aria-live="polite">
+        <p id="countdown" class="countdown">Check-in in 30:00</p>
+        <div class="status-row">
+          <span id="power-light" class="indicator off"></span>
+          <span id="device-status">Device is off</span>
+        </div>
+        <div class="pet-icon" aria-hidden="true">🐾</div>
+        <h2 id="pet-status">Waiting to monitor</h2>
+        <p id="detail">Turn PawWatch on to start checking for activity.</p>
+        <p id="activity-time" class="activity-time">No activity recorded</p>
+        <p id="alert-message" class="alert-message"></p>
+      </section>
+
+      <section class="controls" aria-label="Monitor controls">
+        <button id="power-button" class="primary">Turn On</button>
+        <button id="movement-button" disabled>Simulate Movement</button>
+        <button id="rest-button" disabled>Simulate No Movement</button>
+      </section>
+
+      <section class="settings" aria-label="Alert settings">
+        <label for="alert-threshold">Check-in after</label>
+        <input id="alert-threshold" type="number" min="1" value="30" inputmode="numeric" aria-describedby="threshold-help" />
+        <span>mins</span>
+        <p id="threshold-help">After this much real time without detected movement, PawWatch sends a gentle check-in.</p>
+      </section>
+
+      <button id="talk-button" class="talk-button" disabled aria-describedby="talk-help">Talk to Pet (press to talk)</button>
+      <p id="talk-help" class="talk-help">Hold the button while you speak. Release it to return to monitoring.</p>
+
+      <section class="state-key" aria-label="Current model variables">
+        <h2>Model state</h2>
+        <dl>
+          <div><dt>Device mode</dt><dd id="mode-value">off</dd></div>
+          <div><dt>Pet activity</dt><dd id="activity-value">unknown</dd></div>
+          <div><dt>Last movement</dt><dd id="movement-value">—</dd></div>
+          <div><dt>Still time</dt><dd id="still-time-value">0 min</dd></div>
+        </dl>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
